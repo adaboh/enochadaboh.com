@@ -1,0 +1,49 @@
+//MEDIA QUERRY MANAGER ---BOOTSTRAP QUERRIES///////////////////
+// landscape phones -- 567px
+
+@mixin phone-land {
+  @media only screen and (min-width: 400px) {
+    @content;
+  }
+}
+@mixin phablet {
+  @media only screen and (min-width: 550px) {
+    @content;
+  }
+}
+@mixin tab-land {
+  @media only screen and (min-width: 750px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin desktop-hd {
+  @media only screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin phablet-and-down {
+  @media only screen and (max-width: 550px) {
+    @content;
+  }
+}
+@mixin tab-land-and-down {
+  @media only screen and (max-width: 750px) {
+    @content;
+  }
+}
+
+@mixin verticalHeight {
+  @media only screen and (min-height: 75em) {
+    @content;
+  }
+}
+
+@mixin easeOut {
+  transition: all 0.8s ease-out;
+}

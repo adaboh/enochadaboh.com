@@ -1,0 +1,44 @@
+.resume {
+  &__item {
+    position: relative;
+    border-left: 2px solid $clr-natgray;
+    padding-left: 1.2rem;
+    padding-bottom: 1.2rem;
+
+    &:last-of-type {
+      padding-bottom: 0;  //* prevents a long border-left
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      display: block;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 2px solid $clr-sirocco;
+      top: 0;
+      left: -9px;
+    }
+
+    &--title {
+      margin-bottom: 0.2rem;
+      font-size: 2.2rem;
+      position: relative;
+      top: -9px;
+    }
+
+    &--date {
+      display: inline-block;
+      background-color: rgba($clr-natgray, 0.3);
+      padding: 0.1rem 0.3rem;
+      margin-bottom: 2.2rem;
+    }
+  }
+
+  & .ul-inner {
+    list-style-type: square;
+    padding-left: 1rem;
+  }
+}

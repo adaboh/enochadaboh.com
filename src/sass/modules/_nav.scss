@@ -1,0 +1,43 @@
+.p-nav {
+  &--list {
+    position: relative;
+    margin-bottom: 1.5rem;
+    @include tab-land {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    position: relative;
+    @include phone-land {
+      letter-spacing: 2px;
+    }
+    &:not(:last-child) {
+      margin-right: 1.4rem;
+
+      @include tab-land {
+        margin-right: 3.5rem;
+      }
+    }
+
+    &.p-nav__item--home {
+      display: block;
+      width: max-content;
+
+      @include phablet {
+        display: inline-block;
+      }
+    }
+  }
+
+
+  &__link {
+    padding: 1rem 0.1rem;
+    @extend %link;
+
+    &::after {
+      left: 0rem;
+    }
+  }
+}

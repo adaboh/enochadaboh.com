@@ -1,0 +1,95 @@
+.intro {
+  &__content {
+    margin-top: 4rem;
+    text-align: center;
+
+    @include phablet {
+      margin-top: 10rem;
+      text-align: center;
+    }
+  }
+  &__heading {
+    & span {
+      border-radius: 3px;
+      background-color: $clr-lightgray1;
+      padding: 0 4px;
+    }
+
+    @include phablet {
+      display: none;
+    }
+  }
+
+  &__description {
+    font-size: 3rem;
+
+    @include tab-land {
+      font-size: 4rem;
+    }
+  }
+
+  &__certs {
+    margin-bottom: auto;
+ 
+
+    &--title {
+      background-color: $clr-lightgray1;
+      width: max-content;
+      padding: 0 1rem;
+      margin: 2rem auto;
+      border-radius: 3px;
+
+      @include phablet {
+        margin-top: 4rem;
+      }
+    }
+
+    &--img {
+      width: 10rem;
+      height: 10rem;
+
+      @include phablet {
+        width: 15rem;
+        height: 15rem;
+      }
+      &.linuxplus {
+        width: 12rem;
+        height: 12rem;
+        float: left;
+        margin-left: -8px;
+        @include phablet {
+          width: 17rem;
+          height: 17rem;
+        }
+      }
+    }
+
+    & .col {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem auto; //*fixes centering bcos of max-width
+   
+      @include phablet {
+        max-width: 550px;
+      }
+    }
+
+  
+    & .date {
+      background-color: $clr-lightgray1;
+      padding: 0.5rem;
+      border-radius: 3px;
+    }
+  }
+
+  &__hello {
+    font-size: 4rem;
+    font-weight: 600;
+    color: $clr-seagull;
+
+    @include tab-land {
+      font-size: 6rem;
+    }
+  }
+}

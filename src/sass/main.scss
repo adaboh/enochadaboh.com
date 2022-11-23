@@ -1,0 +1,23 @@
+// @import url("https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@100;300;400&family=Open+Sans:wght@300&display=swap");
+
+// @import "~normalize.css/normalize.css";
+
+@import "base/variables";
+@import "base/mixins";
+@import "base/global";
+@import "base/utilities";
+
+@import "modules/grid";
+@import "modules/header";
+@import "modules/intro";
+@import "modules/btn";
+@import "modules/nav";
+@import "modules/projects";
+@import "modules/footer";
+
+//pages
+@import "pages/pages";
+@import "pages/about";
+@import "pages/resume";
+@import "pages/contact";
+@import "pages/uses";

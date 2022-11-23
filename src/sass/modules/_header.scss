@@ -1,0 +1,89 @@
+.header {
+  &--home {
+    background: $clr-seagull;
+    padding: 0.5rem 0;
+
+    @include tab-land {
+      padding: 1rem 0;
+    }
+  }
+}
+.main-nav {
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0; //*overwrites in skeleton
+  }
+
+  &__item {
+    position: relative;
+    margin: 0; //*overwrites skeleton
+
+    &:not(:first-of-type) {
+      @include tab-land {
+        &:not(:last-of-type) {
+          margin-right: 2.5rem;
+        }
+      }
+    }
+  }
+
+  & .d-none-sm {
+    //* hides and reveals KAdaboh(back home btn
+    display: none;
+    @include phablet {
+      display: block;
+      margin-right: auto;
+    }
+  }
+
+  &__link {
+    padding: 0.5rem 0.5rem;
+    @extend %link; //* apply sass placeholder styles
+
+    @include phablet {
+      padding: 1rem;
+    }
+
+    &:focus,
+    &:active {
+      padding: 1rem 0.5rem; //? animates to shrink in size left and right as paddign is changed from 1rem to .5rem l& r || might not be visible on mobile though
+    }
+  }
+}
+//@ SASS PLACHOLDER GLOBAL STYLES FOR LINKS HOVER
+%link {
+  border-radius: 3px;
+  transition: all 250ms; //? transition styles for active and focus state
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 60%;
+    height: 2px;
+    bottom: 3px;
+    left: 1rem; //* cancells 1rem padding on link(a tag)
+    background-color: $clr-anthensGray;
+
+    transform: scaleX(0);
+    transition: all 250ms ease-out;
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  &.current {
+    font-weight: bold;
+    color: $clr-seagull;
+  }
+
+  &.current::after {
+    width: 100%;
+    bottom: 0px;
+    transform: scaleX(1);
+  }
+}

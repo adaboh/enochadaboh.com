@@ -1,0 +1,11 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  @include tab-land {
+    padding: 3.5rem;
+  }
+
+  & main {
+    margin-bottom: auto;
+  }
+}

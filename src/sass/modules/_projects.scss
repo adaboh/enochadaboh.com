@@ -1,0 +1,92 @@
+.project {
+  background-color: $mainWhite;
+  position: relative;
+  overflow: visible;
+  transition: box-shadow 0.25s, -webkit-box-shadow 0.25s;
+  border-radius: 2px;
+
+  &__head {
+    &--link {
+      font-weight: 600;
+
+      &:hover::before {
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    transition: box-shadow 150ms ease-in-out;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 2px 2px 0 0;
+    object-fit: cover;
+    max-height: 370px;
+    object-position: 50% 50%;
+  }
+
+  & .img-hover:hover {
+    box-shadow: 0 0 0 4px #ddd;
+  }
+
+  &__title {
+    margin-top: 0.5rem;
+    max-height: 50px;
+    vertical-align: middle;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+  }
+
+  &__action {
+    border-top: 1px solid rgba(160, 160, 160, 0.5);
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+    background-color: inherit;
+  }
+  &__info {
+    padding: 1rem;
+    background-color: inherit;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1;
+    transform: translateY(0%);
+    display: none;
+    transition: transform 500ms ease;
+
+    &-close {
+      cursor: pointer;
+      line-height: 1;
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+
+    & svg {
+      float: right;
+      font-weight: bold;
+      fill: $mainBlack;
+    }
+    &-reveal {
+      transform: translateY(-100.3%);
+      display: block;
+    }
+  }
+}
+.project-wrap {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}

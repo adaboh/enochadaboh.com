@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1.8em;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  background-image: "../images/comptiaAplus.png";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.main {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 58px);
+  background: #fff;
+
+  // border: 2px dashed red;
+}
+
+h1,
+h2,
+h3,
+p,
+pre,
+ul {
+  // margin-bottom: 1.5em;
+}
+
+h3,
+h4 {
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  @include tab-land {
+    margin-bottom: 2rem;
+  }
+}
+
+.h3-secondary {
+  color: $clr-seagull;
+  font-size: 2.75rem;
+  @include tab-land {
+    font-size: 3.125rem;
+  }
+}
+
+.h4-secondary {
+  color: #1b70de;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  margin-top: 2rem;
+  // background-color: rebeccapurple;
+
+  @include phablet {
+    text-align: center;
+  }
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
