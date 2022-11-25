@@ -1,6 +1,7 @@
 const path = require("path");
+const extract = require("mini-css-extract-plugin");
 const common = require("./webpack.common");
-const { merge } = require("webpack-merge");
+const { merge } = require("./webpack-merge");
 
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -21,10 +22,7 @@ module.exports = merge(common, {
       },
 
       //html
-      {
-        test: /\.html$/,
-        use: ["html-loader"],
-      },
+      // images
     ],
   },
 });
