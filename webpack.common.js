@@ -9,7 +9,7 @@ module.exports = {
     main: "./src/index.js",
   },
 
-  devtool: "source-map",
+  // devtool: "source-map",
   module: {
     rules: [
       //js loading
@@ -29,7 +29,27 @@ module.exports = {
         use: ["html-loader"],
       },
 
-      // images
+      // images\
+      {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
+        },
+        // use: {
+        //   loader: "file-loader",
+        //   options: {
+        //     name: "[name].[hash].[ext]",
+        //     outputPath: "assets",
+        //   },
+        // },
+      },
+
+      {
+        // test: /\.svg$/!,
+        // use: ["svg-sprite-loader"],
+        // "svg-transform-loader", "svgo-loader"],
+      },
     ],
   },
 
@@ -37,6 +57,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
+      inject: "body",
+      //inject scripts at the end of the body
     }),
     new HtmlWebpackPlugin({
       template: "./src/about.html",

@@ -1,6 +1,6 @@
 //* select all btns
 
-// const navLinks = document.querySelectorAll("li:not(:first-of-type) .p-nav__link");
+const navLinks = document.querySelectorAll("li:not(:first-of-type) .p-nav__link");
 const homePage = document.querySelector(".main-nav__list");
 
 if (!homePage) {
