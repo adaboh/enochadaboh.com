@@ -7,6 +7,15 @@ const fs = require("fs");
 
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
+const fse = require("fs-extra");
+
+class RunAfterCompile {
+  apply(compiler) {
+    compiler.hooks.done.tap("Copy images", function () {
+      fse.copySync("./src/images", "./dist/images");
+    });
+  }
+}
 
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -47,6 +56,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin(),
+    new RunAfterCompile(),
     // new BundleAnalyzerPlugin(),
   ],
 });
