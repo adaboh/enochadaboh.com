@@ -1,7 +1,18 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const fs = require("fs");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+
+// Look for .html files
+var htmlFiles = [];
+var directories = ["src"];
+while (directories.length > 0) {
+  var directory = directories.pop();
+  var dirContents = fs.readdirSync(directory).map((file) => path.join(directory, file));
+
+  htmlFiles.push(...dirContents.filter((file) => file.endsWith(".html")));
+  directories.push(...dirContents.filter((file) => fs.statSync(file).isDirectory()));
+}
 
 module.exports = {
   entry: {
@@ -9,7 +20,7 @@ module.exports = {
     main: "./src/index.js",
   },
 
-  // devtool: "source-map",
+  // devtool: "eval-cheap-source-map",
   module: {
     rules: [
       //js loading
@@ -25,56 +36,30 @@ module.exports = {
       },
       //html
       {
-        test: /\.html$/,
+        test: /\.html$/i,
         use: ["html-loader"],
       },
 
-      // images\
       {
-        test: /\.(svg|png|jpe?g|gif)$/i,
+        test: /\.(|png|svg|jpe?g|gif)$/i,
         type: "asset/resource",
         generator: {
           filename: "images/[name][ext]",
         },
-        // use: {
-        //   loader: "file-loader",
-        //   options: {
-        //     name: "[name].[hash].[ext]",
-        //     outputPath: "assets",
-        //   },
-        // },
-      },
-
-      {
-        // test: /\.svg$/!,
-        // use: ["svg-sprite-loader"],
-        // "svg-transform-loader", "svgo-loader"],
       },
     ],
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-      filename: "index.html",
-      inject: "body",
-      //inject scripts at the end of the body
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/about.html",
-      filename: "about.html",
-    }),
-    // new HtmlWebpackPlugin({
-    //   template: "./src/uses.html",
-    //   filename: "uses.html",
-    // }),
-    // new HtmlWebpackPlugin({
-    //   template: "./src/contact.html",
-    //   filename: "contact.html",
-    // }),
-    // new HtmlWebpackPlugin({
-    //   template: "./src/resume.html",
-    //   filename: "resume.html",
-    // }),
+    // Build a new plugin instance for each .html file found
+    ...htmlFiles.map(
+      (htmlFile) =>
+        new HtmlWebpackPlugin({
+          template: htmlFile,
+          filename: htmlFile.replace(path.normalize("src/"), ""),
+          inject: "body",
+        })
+    ),
+    require("autoprefixer"),
   ],
 };

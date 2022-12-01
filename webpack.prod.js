@@ -1,5 +1,10 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const fs = require("fs");
+
 const common = require("./webpack.common");
 const { merge } = require("webpack-merge");
 
@@ -7,7 +12,7 @@ const { merge } = require("webpack-merge");
 
 module.exports = merge(common, {
   mode: "production",
-
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
@@ -24,6 +29,7 @@ module.exports = merge(common, {
           //turns css into common js
           "css-loader",
           //turns sass into css
+          "postcss-loader",
           "sass-loader",
         ],
       },
@@ -32,5 +38,15 @@ module.exports = merge(common, {
       // images
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  optimization: {
+    minimizer: [
+      //
+      new CssMinimizerPlugin(),
+      new TerserPlugin(),
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin(),
+    // new BundleAnalyzerPlugin(),
+  ],
 });

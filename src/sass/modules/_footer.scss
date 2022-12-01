@@ -8,25 +8,26 @@
   font-size: 1.4rem;
   margin-bottom: 2rem;
   text-align: center;
- 
 
   @include tab-land {
     font-size: 1.6rem;
     margin-bottom: 0;
     //*counter margin-bottom: 1rem as padding of 3.5rem is on the main page
-   
   }
 
   & p {
     margin-bottom: 1rem;
+    // color: blue;
+    // font-size: 23px;
     @include tab-land {
       // text-align: left;
     }
-
   }
 
   &__social {
-    margin-bottom: .4rem;
+    margin-bottom: 0.4rem;
+    display: grid;
+    user-select: none;
   }
 
   & .build-info {

@@ -14,3 +14,5 @@ if (!homePage) {
     }
   }
 }
+
+// console.log("webpack compiled successfully");
