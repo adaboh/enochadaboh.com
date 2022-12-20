@@ -30,8 +30,7 @@
       text-decoration: none;
 
       @include tab-land {
-      background-size: auto 3px;
-
+        background-size: auto 3px;
       }
     }
   }
@@ -64,5 +63,3 @@
     }
   }
 }
-
-

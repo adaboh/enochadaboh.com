@@ -30,7 +30,6 @@
 
   &__certs {
     margin-bottom: auto;
- 
 
     &--title {
       background-color: $clr-lightgray1;
@@ -69,13 +68,12 @@
       align-items: center;
       justify-content: space-between;
       margin: 2rem auto; //*fixes centering bcos of max-width
-   
+
       @include phablet {
         max-width: 550px;
       }
     }
 
-  
     & .date {
       background-color: $clr-lightgray1;
       padding: 0.5rem;

@@ -6,7 +6,7 @@
     padding-bottom: 1.2rem;
 
     &:last-of-type {
-      padding-bottom: 0;  //* prevents a long border-left
+      padding-bottom: 0; //* prevents a long border-left
     }
 
     &::before {
@@ -40,5 +40,17 @@
   & .ul-inner {
     list-style-type: square;
     padding-left: 1rem;
+  }
+
+  &__download {
+    & label {
+      display: inline-block;
+    }
+
+    & select {
+      margin-bottom: 0;
+      text-align: center;
+      padding: 4px;
+    }
   }
 }
