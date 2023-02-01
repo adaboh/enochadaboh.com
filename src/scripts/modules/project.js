@@ -3,6 +3,57 @@
 const navLinks = document.querySelectorAll("li:not(:first-of-type) .p-nav__link");
 const homePage = document.querySelector(".main-nav__list");
 
+// console.log("webpack compiled successfully");
+
+//! Default or common footer accross pages
+/* ref: https://stackoverflow.com/questions/18712338/make-header-and-footer-files-to-be-included-in-multiple-html-pages */
+
+const footerTemplate = `
+      <div class="container">
+        <div class="row row-1">
+          <div class="six columns">
+            <p class="footer--text">Living Each Day Blessed &amp; Fulfiled</p>
+            <p class="footer--copyright">&copy; KAY, 2020&#8211;Today &verbar; <strong>All Rights Reserved.</strong> </p>
+          </div>
+
+          <div class="six columns">
+            <div class="footer__social">
+              <a href="#!" class="btn btn--footer">
+                <svg class="icon icon--footer">
+                  <use href="./images/sprites.svg#icon-linkedin2"></use>
+                </svg>
+              </a>
+              <a href="#!" class="btn btn--footer">
+                <svg class="icon icon--footer">
+                  <use href="./images/sprites.svg#icon-twitter"></use>
+                </svg>
+              </a>
+              <a href="#!" class="btn btn--footer">
+                <svg class="icon icon--footer">
+                  <use href="./images/sprites.svg#icon-github"></use>
+                </svg>
+              </a>
+            </div>
+
+            <p>
+              Built with
+              <a href="http://getskeleton.com/" class="uses__link" target="_blank">Skeleton CSS</a>
+              & Hosted on
+              <a href="https://www.netlify.com/" class="uses__link" target="_blank">Netlify</a>
+            </p>
+          </div>
+        </div>
+</div>`;
+
+const mainContainer = document.querySelector("main.container");
+// console.log(mainContainer);
+const footer = document.createElement("footer");
+footer.classList.add("footer");
+footer.innerHTML = footerTemplate;
+// console.log(footer);
+// console.log(mainContainer);
+// mainContainer.parentNode.insertBefore(footer, footer.nextSibling);
+
 if (!homePage) {
   const currentLocation = location.href;
   const pNavLink = document.querySelectorAll(".p-nav__link");
@@ -13,26 +64,8 @@ if (!homePage) {
       pNavLink[i].classList.add("current");
     }
   }
+
+  mainContainer.parentNode.insertBefore(footer, footer.nextSibling);
 }
 
-// console.log("webpack compiled successfully");
-
 //! Read More - About page code
-const buttonReadMore = document.querySelector(".button-readmore");
-// const aboutMoreText = document.querySelector(".about__readmore");
-let aboutMoreText = document.getElementById("about__readmore");
-
-// console.log(aboutMoreText);
-
-buttonReadMore.addEventListener("click", function () {
-  if (aboutMoreText.style.display === "none") {
-    buttonReadMore.textContent = "Read Less";
-    aboutMoreText.style.display = "block";
-  } else {
-    buttonReadMore.textContent = "Read More";
-    aboutMoreText.style.display = "none";
-  }
-});
-//*[@id="landmark-main"]/div/div[1]/div[7]/div[1]/div/div[3]/div/span/div/text()
-
-// 1768 E 24th Ave, 43219

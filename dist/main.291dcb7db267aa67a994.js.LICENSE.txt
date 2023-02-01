@@ -1,0 +1,3 @@
+//! Default or common footer accross pages
+
+//! Read More - About page code
